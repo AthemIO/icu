@@ -1,0 +1,17 @@
+ICU Swift Package Changelog
+===========================
+
+v78.1.0  December 7th, 2025
+swift:
+    - add Swift Package Manager support for ICU 78.1
+    - expose icuuc (common) and icuin (i18n) libraries as SPM targets
+    - configure public headers from unicode/ directories
+    - add Windows platform support with advapi32 linking
+    - use C++17 language standard
+    - fork from unicode-org/icu maint/maint-78 branch
+upstream:
+    - ICU 78 updates to Unicode 17
+    - CLDR 48 locale data with new locales and corrections
+    - new C++ APIs for UTF-8/16/32 code point iteration with modern iterators and ranges
+    - MessageFormat 2.0 implementation updated to CLDR 48 (Java) and CLDR 47 (C++)
+    - various bug fixes and performance improvements
