@@ -37,7 +37,11 @@ let package = Package(
             cxxSettings: [
                 .define("U_COMMON_IMPLEMENTATION"),
                 .define("U_STATIC_IMPLEMENTATION"),
+                // Header search path for source compilation and module map includes.
+                // Headers in unicode/ use #include "unicode/utypes.h" which requires
+                // the parent directory (common/) to be in the search path.
                 .headerSearchPath("."),
+                .headerSearchPath("unicode"),
                 .define("_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH", .when(platforms: [.windows])),
                 .define("_ALLOW_KEYWORD_MACROS", to: "1", .when(platforms: [.windows])),
                 .define("static_assert(_conditional, ...)", to: "", .when(platforms: [.windows])),
@@ -60,7 +64,9 @@ let package = Package(
                 .define("U_I18N_IMPLEMENTATION"),
                 .define("U_STATIC_IMPLEMENTATION"),
                 .headerSearchPath("."),
+                .headerSearchPath("unicode"),
                 .headerSearchPath("../common"),
+                .headerSearchPath("../common/unicode"),
                 .define("_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH", .when(platforms: [.windows])),
                 .define("_ALLOW_KEYWORD_MACROS", to: "1", .when(platforms: [.windows])),
                 .define("static_assert(_conditional, ...)", to: "", .when(platforms: [.windows])),
